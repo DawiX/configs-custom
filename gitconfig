@@ -1,0 +1,55 @@
+[color]
+ branch = auto
+ diff = auto
+ status = auto
+ interactive = auto
+[user]
+    name = Foo Bar
+    email = foobar@example.com
+[core]
+    editor = vim
+    autocrlf = input
+    excludesfile =
+[merge]
+    tool = vimdiff
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    rb = pull --rebase
+    unstage = reset HEAD --
+    hist =  log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    hist2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    di = diff -w
+    dic = diff -w --cached
+    dir = diff # raw, no -w
+    log-my = log --author=dpech
+     log1 = log --oneline
+     log10 = log --oneline -10
+     log10a = log --oneline --pretty=format:‘%h | %an | %s’ -10
+     log1a = log --oneline --pretty=format:‘%h | %an | %s’
+     log1d = log --pretty=format:‘%h | %ad | %s [%an]' --date=short
+     logday = log --since=‘1 day ago’
+     logn = log --name-status
+     logp = log -p
+     logp-my = log -p --author=dpech
+     logpr = log -p --reverse
+     logs = log --stat
+    revert-last = reset --soft HEAD^
+     show-stash = stash show stash@{0} -p
+     show-stash-1 = stash show stash@{1} -p
+     shown = show --name-status
+     showno = show --name-only --oneline
+     sl = stash list
+     sp = stash pop
+     ss = stash save
+    mr = push -o merge_request.create -o merge_request.remove_source_branch
+    mrd = push -o merge_request.create -o merge_request.remove_source_branch -o merge_request.draft
+	nb = !git checkout --track $(git config branch.$(git rev-parse --abbrev-ref HEAD).remote)/$(git rev-parse --abbrev-ref HEAD) -b
+[colors]
+    ui = auto
+[http]
+    postBuffer = 524288000
+[credential]
+    helper = store
